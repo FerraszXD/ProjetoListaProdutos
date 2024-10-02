@@ -1,0 +1,236 @@
+//codigo do desining do projeto
+
+
+namespace listadeprodutos
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            btn_adicionar = new Button();
+            label1 = new Label();
+            lst_produtos = new ListBox();
+            pictureBox1 = new PictureBox();
+            btn_excluir = new Button();
+            btn_comprar = new Button();
+            btn_cancelar = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            pictureBox2 = new PictureBox();
+            lst_carrinho = new ListBox();
+            label4 = new Label();
+            btn_limpar = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            SuspendLayout();
+            // 
+            // btn_adicionar
+            // 
+            btn_adicionar.Location = new Point(68, 334);
+            btn_adicionar.Margin = new Padding(0, 5, 0, 5);
+            btn_adicionar.Name = "btn_adicionar";
+            btn_adicionar.Size = new Size(112, 55);
+            btn_adicionar.TabIndex = 0;
+            btn_adicionar.Text = "Adicionar ao carrinho";
+            btn_adicionar.UseVisualStyleBackColor = true;
+            btn_adicionar.Click += btn_adicionar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(51, 4);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(155, 21);
+            label1.TabIndex = 1;
+            label1.Text = "Produtos disponíveis";
+            // 
+            // lst_produtos
+            // 
+            lst_produtos.BackColor = SystemColors.ScrollBar;
+            lst_produtos.FormattingEnabled = true;
+            lst_produtos.ItemHeight = 15;
+            lst_produtos.Items.AddRange(new object[] { "The Legend of Zelda: Breath of the Wild", "Super Mario Odyssey", "Red Dead Redemption 2", "The Witcher 3: Wild Hunt", "Dark Souls III", "God of War", "Minecraft", "Fortnite", "Call of Duty: Modern Warfare", "Animal Crossing: New Horizons" });
+            lst_produtos.Location = new Point(9, 30);
+            lst_produtos.Margin = new Padding(0, 5, 0, 5);
+            lst_produtos.Name = "lst_produtos";
+            lst_produtos.Size = new Size(253, 274);
+            lst_produtos.TabIndex = 2;
+            lst_produtos.Click += listBox1_SelectedIndexChanged;
+            lst_produtos.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(262, 28);
+            pictureBox1.Margin = new Padding(0, 5, 0, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(147, 131);
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
+            // btn_excluir
+            // 
+            btn_excluir.Location = new Point(741, 334);
+            btn_excluir.Margin = new Padding(0, 5, 0, 5);
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.Size = new Size(112, 55);
+            btn_excluir.TabIndex = 4;
+            btn_excluir.Text = "Excluir do carrinho";
+            btn_excluir.UseVisualStyleBackColor = true;
+            btn_excluir.Click += button2_Click;
+            // 
+            // btn_comprar
+            // 
+            btn_comprar.Location = new Point(309, 247);
+            btn_comprar.Margin = new Padding(0, 5, 0, 5);
+            btn_comprar.Name = "btn_comprar";
+            btn_comprar.Size = new Size(112, 55);
+            btn_comprar.TabIndex = 5;
+            btn_comprar.Text = "Comprar";
+            btn_comprar.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancelar
+            // 
+            btn_cancelar.Location = new Point(453, 247);
+            btn_cancelar.Margin = new Padding(0, 5, 0, 5);
+            btn_cancelar.Name = "btn_cancelar";
+            btn_cancelar.Size = new Size(112, 55);
+            btn_cancelar.TabIndex = 6;
+            btn_cancelar.Text = "Cancelar";
+            btn_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F);
+            label2.Location = new Point(247, 4);
+            label2.Margin = new Padding(0);
+            label2.Name = "label2";
+            label2.Size = new Size(174, 19);
+            label2.TabIndex = 7;
+            label2.Text = "Pré visualizacao - produtos";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10F);
+            label3.Location = new Point(453, 4);
+            label3.Margin = new Padding(0);
+            label3.Name = "label3";
+            label3.Size = new Size(168, 19);
+            label3.TabIndex = 11;
+            label3.Text = "Pré visualizacao - carrinho";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(467, 28);
+            pictureBox2.Margin = new Padding(0, 5, 0, 5);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(147, 131);
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
+            // lst_carrinho
+            // 
+            lst_carrinho.BackColor = SystemColors.ScrollBar;
+            lst_carrinho.FormattingEnabled = true;
+            lst_carrinho.ItemHeight = 15;
+            lst_carrinho.Location = new Point(614, 28);
+            lst_carrinho.Margin = new Padding(0, 5, 0, 5);
+            lst_carrinho.Name = "lst_carrinho";
+            lst_carrinho.Size = new Size(248, 274);
+            lst_carrinho.TabIndex = 9;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(678, 4);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(156, 21);
+            label4.TabIndex = 8;
+            label4.Text = "Carrinho de compras";
+            // 
+            // btn_limpar
+            // 
+            btn_limpar.Location = new Point(629, 334);
+            btn_limpar.Margin = new Padding(0, 5, 0, 5);
+            btn_limpar.Name = "btn_limpar";
+            btn_limpar.Size = new Size(112, 55);
+            btn_limpar.TabIndex = 12;
+            btn_limpar.Text = "Limpar carrinho";
+            btn_limpar.UseVisualStyleBackColor = true;
+            btn_limpar.Click += button5_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SlateBlue;
+            ClientSize = new Size(871, 450);
+            Controls.Add(btn_limpar);
+            Controls.Add(label3);
+            Controls.Add(pictureBox2);
+            Controls.Add(lst_carrinho);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(btn_cancelar);
+            Controls.Add(btn_comprar);
+            Controls.Add(btn_excluir);
+            Controls.Add(pictureBox1);
+            Controls.Add(lst_produtos);
+            Controls.Add(label1);
+            Controls.Add(btn_adicionar);
+            Font = new Font("Segoe UI", 9F);
+            Margin = new Padding(0, 5, 0, 5);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button btn_adicionar;
+        private Label label1;
+        private ListBox lst_produtos;
+        private PictureBox pictureBox1;
+        private Button btn_excluir;
+        private Button btn_comprar;
+        private Button btn_cancelar;
+        private Label label2;
+        private Label label3;
+        private PictureBox pictureBox2;
+        private ListBox lst_carrinho;
+        private Label label4;
+        private Button btn_limpar;
+    }
+}
