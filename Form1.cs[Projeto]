@@ -1,6 +1,7 @@
 //codigo do desining do projeto
 
 
+
 namespace listadeprodutos
 {
     partial class Form1
@@ -44,6 +45,8 @@ namespace listadeprodutos
             lst_carrinho = new ListBox();
             label4 = new Label();
             btn_limpar = new Button();
+            lbl_total = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -75,7 +78,6 @@ namespace listadeprodutos
             lst_produtos.BackColor = SystemColors.ScrollBar;
             lst_produtos.FormattingEnabled = true;
             lst_produtos.ItemHeight = 15;
-            lst_produtos.Items.AddRange(new object[] { "The Legend of Zelda: Breath of the Wild", "Super Mario Odyssey", "Red Dead Redemption 2", "The Witcher 3: Wild Hunt", "Dark Souls III", "God of War", "Minecraft", "Fortnite", "Call of Duty: Modern Warfare", "Animal Crossing: New Horizons" });
             lst_produtos.Location = new Point(9, 30);
             lst_produtos.Margin = new Padding(0, 5, 0, 5);
             lst_produtos.Name = "lst_produtos";
@@ -188,12 +190,35 @@ namespace listadeprodutos
             btn_limpar.UseVisualStyleBackColor = true;
             btn_limpar.Click += button5_Click;
             // 
+            // lbl_total
+            // 
+            lbl_total.AutoSize = true;
+            lbl_total.Font = new Font("Segoe UI", 12F);
+            lbl_total.Location = new Point(450, 386);
+            lbl_total.Name = "lbl_total";
+            lbl_total.Size = new Size(0, 21);
+            lbl_total.TabIndex = 13;
+            lbl_total.UseWaitCursor = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(283, 386);
+            label5.Name = "label5";
+            label5.Size = new Size(171, 21);
+            label5.TabIndex = 14;
+            label5.Text = "Preço total do carrinho:";
+            label5.UseWaitCursor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SlateBlue;
             ClientSize = new Size(871, 450);
+            Controls.Add(label5);
+            Controls.Add(lbl_total);
             Controls.Add(btn_limpar);
             Controls.Add(label3);
             Controls.Add(pictureBox2);
@@ -232,5 +257,8 @@ namespace listadeprodutos
         private ListBox lst_carrinho;
         private Label label4;
         private Button btn_limpar;
+        private Label lbl_total;
+        private Label label5;
     }
 }
+
