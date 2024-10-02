@@ -11,6 +11,41 @@ namespace listadeprodutos
         {
 
             InitializeComponent();
+            CarregarProdutos();
+
+        }
+
+        private void CarregarProdutos()
+        {
+            // Cria produtos com nome e preço
+            lst_produtos.Items.Add(new Produto("The Legend of Zelda: Breath of the Wild", 59.99m));
+            lst_produtos.Items.Add(new Produto("Super Mario Odyssey", 49.99m));
+            lst_produtos.Items.Add(new Produto("Red Dead Redemption 2", 39.99m));
+            lst_produtos.Items.Add(new Produto("The Witcher 3: Wild Hunt", 29.99m));
+            lst_produtos.Items.Add(new Produto("Dark Souls III", 19.99m));
+            lst_produtos.Items.Add(new Produto("God of War", 59.99m));
+            lst_produtos.Items.Add(new Produto("Minecraft", 26.95m));
+            lst_produtos.Items.Add(new Produto("Fortnite", 0.00m));
+            lst_produtos.Items.Add(new Produto("Call of Duty: Modern Warfare", 59.99m));
+            lst_produtos.Items.Add(new Produto("Animal Crossing: New Horizons", 49.99m));
+        }
+
+        public class Produto
+        {
+            public string Nome { get; set; }
+            public decimal Preco { get; set; }
+
+            public Produto(string nome, decimal preco)
+            {
+                Nome = nome;
+                Preco = preco;
+            }
+
+            // Sobrescrevemos o método ToString para exibir apenas o nome do produto na lista
+            public override string ToString()
+            {
+                return Nome;
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -18,18 +53,22 @@ namespace listadeprodutos
 
         }
 
-
+        private decimal totalCarrinho = 0m; // Variável para armazenar o total
         //botao de adicionar item
         private void btn_adicionar_Click(object sender, EventArgs e)
         {
             // Verifica se um item está selecionado na lista de produtos
             if (lst_produtos.SelectedItem != null)
             {
-                // Obtém o item selecionado
-                var produtoSelecionado = lst_produtos.SelectedItem;
+                // Obtém o item selecionado e o converte para Produto
+                Produto produtoSelecionado = (Produto)lst_produtos.SelectedItem;
 
                 // Adiciona o item selecionado à lista do carrinho
                 lst_carrinho.Items.Add(produtoSelecionado);
+                totalCarrinho += produtoSelecionado.Preco;
+
+                // Exibe o total atualizado
+                lbl_total.Text = $"Total: R$ {totalCarrinho:F2}";
 
                 // Exibe uma mensagem de confirmação
                 MessageBox.Show($"{produtoSelecionado} adicionado ao carrinho!");
@@ -60,13 +99,17 @@ namespace listadeprodutos
 
 
                     // Obtém o item selecionado
-                    var produtoSelecionado = lst_carrinho.SelectedItem;
+                    Produto itemSelecionado = (Produto)lst_carrinho.SelectedItem;
 
                     //remove o produto selecionado
-                    lst_carrinho.Items.Remove(produtoSelecionado);
+                    lst_carrinho.Items.Remove(itemSelecionado);
+
+                    // Atualiza o total do carrinho
+                    totalCarrinho -= itemSelecionado.Preco;
+                    lbl_total.Text = $"Total: R$ {totalCarrinho:F2}";
 
                     // Exibe uma mensagem de confirmação
-                    MessageBox.Show($"{produtoSelecionado} excluido do carrinho!");
+                    MessageBox.Show($"{itemSelecionado} excluido do carrinho!");
 
                 }
                 else
@@ -101,7 +144,7 @@ namespace listadeprodutos
             // Se o usuário clicar em "Sim", limpa a lista do carrinho
             if (resultado == DialogResult.Yes)
             {
-
+                //CORRIGIR O BOTAO LIMPAR QUE NAO ALTERA O PREÇO
                 lst_carrinho.Items.Clear();
             }
 
@@ -113,3 +156,5 @@ namespace listadeprodutos
         }
     }
 }
+
+
