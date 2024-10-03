@@ -1,7 +1,6 @@
 //codigo do desining do projeto
 
 
-
 namespace listadeprodutos
 {
     partial class Form1
@@ -261,4 +260,3 @@ namespace listadeprodutos
         private Label label5;
     }
 }
-
