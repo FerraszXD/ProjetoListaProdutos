@@ -2,6 +2,7 @@
 
 
 
+
 namespace listadeprodutos
 {
     public partial class Form1 : Form
@@ -11,6 +12,7 @@ namespace listadeprodutos
         {
 
             InitializeComponent();
+            //puxa a funcao de carregar os produtos na lista
             CarregarProdutos();
 
         }
@@ -32,9 +34,11 @@ namespace listadeprodutos
 
         public class Produto
         {
+            //puxa o valor das duas caracteristicas
             public string Nome { get; set; }
             public decimal Preco { get; set; }
 
+            //define a variavel do produto com suas caracteristicas(nome e preco)
             public Produto(string nome, decimal preco)
             {
                 Nome = nome;
@@ -133,7 +137,7 @@ namespace listadeprodutos
 
 
         //botao de limpar
-        private void button5_Click (object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             //pergunta se realmente deseja limpar a lista do carrinho
             var resultado = MessageBox.Show("Você realmente deseja remover este item do carrinho?",
@@ -144,7 +148,9 @@ namespace listadeprodutos
             // Se o usuário clicar em "Sim", limpa a lista do carrinho
             if (resultado == DialogResult.Yes)
             {
-                //CORRIGIR O BOTAO LIMPAR QUE NAO ALTERA O PREÇO
+                //reseta o valor e limpa o carrinho
+                totalCarrinho = 0;
+                lbl_total.Text = "R$0";
                 lst_carrinho.Items.Clear();
             }
 
@@ -154,7 +160,10 @@ namespace listadeprodutos
                 MessageBox.Show("processo de limpar carrinho cancelado");
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
-
-
