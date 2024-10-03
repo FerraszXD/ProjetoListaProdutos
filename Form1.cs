@@ -1,7 +1,3 @@
-//colocarei aqui todo o codigo de c# e em outro arquivo o codigo do desining
-
-
-
 
 namespace listadeprodutos
 {
@@ -165,5 +161,16 @@ namespace listadeprodutos
         {
 
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_adicionar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
