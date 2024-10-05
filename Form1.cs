@@ -16,36 +16,36 @@ namespace listadeprodutos
         private void CarregarProdutos()
         {
             // Cria produtos com nome e preço
-            lst_produtos.Items.Add(new Produto("The Legend of Zelda: Breath of the Wild", 59.99m));
-            lst_produtos.Items.Add(new Produto("Super Mario Odyssey", 49.99m));
-            lst_produtos.Items.Add(new Produto("Red Dead Redemption 2", 39.99m));
-            lst_produtos.Items.Add(new Produto("The Witcher 3: Wild Hunt", 29.99m));
-            lst_produtos.Items.Add(new Produto("Dark Souls III", 19.99m));
-            lst_produtos.Items.Add(new Produto("God of War", 59.99m));
-            lst_produtos.Items.Add(new Produto("Minecraft", 26.95m));
-            lst_produtos.Items.Add(new Produto("Fortnite", 0.00m));
-            lst_produtos.Items.Add(new Produto("Call of Duty: Modern Warfare", 59.99m));
-            lst_produtos.Items.Add(new Produto("Animal Crossing: New Horizons", 49.99m));
+            lst_produtos.Items.Add(new Produto("The Legend of Zelda: Breath of the Wild", 59.99m, "C:\\Users\\Ferrasz\\source\\repos\\listadeprodutos\\imagens\\zelda.png"));
+            lst_produtos.Items.Add(new Produto("Super Mario Odyssey", 49.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("Red Dead Redemption 2", 39.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("The Witcher 3: Wild Hunt", 29.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("Dark Souls III", 19.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("God of War", 59.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("Minecraft", 26.95m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("Fortnite", 0.00m, "C:\\Users\\Ferrasz\\source\\repos\\listadeprodutos\\imagens\\fortimite.png"));
+            lst_produtos.Items.Add(new Produto("Call of Duty: Modern Warfare", 59.99m, "imagens/dark_souls.jpg"));
+            lst_produtos.Items.Add(new Produto("Animal Crossing: New Horizons", 49.99m, "imagens/dark_souls.jpg"));
         }
 
         public class Produto
         {
-            //puxa o valor das duas caracteristicas
             public string Nome { get; set; }
             public decimal Preco { get; set; }
+            public string ImagemCaminho { get; set; } // Caminho da imagem
 
-            //define a variavel do produto com suas caracteristicas(nome e preco)
-            public Produto(string nome, decimal preco)
+            public Produto(string nome, decimal preco, string imagemCaminho)
             {
                 Nome = nome;
                 Preco = preco;
+                ImagemCaminho = imagemCaminho;
             }
 
-            // Sobrescrevemos o método ToString para exibir apenas o nome do produto na lista
             public override string ToString()
             {
-                return Nome;
+                return Nome; // Exibe o nome do produto na lista
             }
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,7 +55,7 @@ namespace listadeprodutos
 
         private decimal totalCarrinho = 0m; // Variável para armazenar o total
         //botao de adicionar item
-        private void btn_adicionar_Click(object sender, EventArgs e)
+        private void btn_adicionar_Click_1(object sender, EventArgs e)
         {
             // Verifica se um item está selecionado na lista de produtos
             if (lst_produtos.SelectedItem != null)
@@ -82,7 +82,7 @@ namespace listadeprodutos
 
 
         //botao de excluir item
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_excluir_Click(object sender, EventArgs e)
         {
             // Verifica se um item está selecionado na lista do carrinho
             if (lst_carrinho.SelectedItem != null)
@@ -133,7 +133,7 @@ namespace listadeprodutos
 
 
         //botao de limpar
-        private void button5_Click(object sender, EventArgs e)
+        private void btn_limpar_Click(object sender, EventArgs e)
         {
             //pergunta se realmente deseja limpar a lista do carrinho
             var resultado = MessageBox.Show("Você realmente deseja remover este item do carrinho?",
@@ -166,11 +166,43 @@ namespace listadeprodutos
         {
 
         }
-
-        private void btn_adicionar_Click_1(object sender, EventArgs e)
+          //funcao de clique na lista
+        private void lst_produtos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lst_produtos.SelectedItem != null)
+            {
+                Produto produtoSelecionado = (Produto)lst_produtos.SelectedItem;
 
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image.Dispose();
+                    pictureBox1.Image = null;
+                }
+
+                if (System.IO.File.Exists(produtoSelecionado.ImagemCaminho))
+                {
+                    try
+                    {
+                        // Abre a imagem em um fluxo de memória para evitar bloqueio do arquivo
+                        using (var tempImage = new Bitmap(produtoSelecionado.ImagemCaminho))
+                        {
+                            // Clona a imagem para o PictureBox (evita bloqueio de arquivo)
+                            pictureBox1.Image = new Bitmap(tempImage);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Erro ao carregar a imagem: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    pictureBox1.Image = null;
+                    MessageBox.Show("Imagem não encontrada!");
+                }
+            }
         }
+
+
     }
 }
-
